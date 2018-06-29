@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ruby.trainingproject.Registration.Registration"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#84ece6e6"
+    android:layout_height="match_parent"
+    >
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registration"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="108dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="108dp"
+            android:src="@drawable/fifawallpaper"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/add_photo"
+            android:textSize="12sp"
+            android:id="@+id/bt1"
+            android:layout_margin="8dp"
+            android:gravity="top|center_horizontal"
+            android:background="@color/transparent"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_circle"
+            android:layout_gravity="center_horizontal"
+            />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="12dp"
+                android:hint="@string/enter_full_name"
+                android:textSize="20sp"
+                android:paddingLeft="18dp"
+                android:id="@+id/ed5"
+                android:textColor="@color/colorAccent"
+                android:singleLine="true"
+                android:background="@drawable/circular_textview"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:id="@+id/ed6"
+                android:textColor="@color/colorAccent"
+                android:padding="12dp"
+                android:background="@drawable/circular_textview"
+                android:paddingLeft="18dp"
+                android:singleLine="true"
+                android:hint="@string/enter_email_address"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:id="@+id/ed7"
+                android:textColor="@color/colorAccent"
+                android:padding="12dp"
+                android:background="@drawable/circular_textview"
+                android:paddingLeft="18dp"
+                android:singleLine="true"
+                android:hint="@string/password"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/ed8"
+                android:layout_margin="16dp"
+                android:hint="@string/phone_number"
+                android:background="@drawable/circular_textview"
+                android:textColor="@color/colorAccent"
+                android:singleLine="true"
+                android:maxLength="10"
+                android:paddingLeft="18dp"
+                android:padding="12dp"
+                android:inputType="phone"
+                />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background"
+                android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="16dp"
+                android:singleLine="true"
+                android:hint="@string/address"
+                android:paddingLeft="18dp"
+                android:background="@drawable/circular_textview"
+                android:padding="12dp"
+                />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_below="@id/ed1"
+                android:id="@+id/ed2"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="16dp"
+                android:spinnerMode="dropdown"
+                android:paddingLeft="18dp"
+                android:background="@drawable/circular_textview"
+                android:padding="12dp"
+                android:entries="@array/country_arrays"
+                android:prompt="@string/state"
+                style="@android:style/Widget.Spinner"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_below="@id/ed2"
+                android:id="@+id/ed3"
+                android:singleLine="true"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="16dp"
+                android:hint="@string/city"
+                android:paddingLeft="18dp"
+                android:background="@drawable/circular_textview"
+                android:padding="12dp"
+                />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_below="@id/ed3"
+                android:id="@+id/ed4"
+                android:maxLength="6"
+                android:singleLine="true"
+                android:textColor="@color/colorAccent"
+                android:layout_margin="16dp"
+                android:hint="@string/postal_code"
+                android:paddingLeft="18dp"
+                android:background="@drawable/circular_textview"
+                android:padding="12dp"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ed4"
+                android:id="@+id/buttonRequestSent"
+                android:text="@string/submit"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/circular_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                />
+
+        </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

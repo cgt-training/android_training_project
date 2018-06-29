@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Training Project</string>
+    <string name="registration">Registration</string>
+    <string name="address">Address</string>
+    <string name="submit">Submit</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="world_cup_app">World Cup App</string>
+    <string name="delete">Delete</string>
+    <string name="example">Example</string>
+    <string name="add_new_task">Add New Task</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="add_todo_list">Add Todo List</string>
+    <string name="todo_list">Todo List</string>
+    <string name="profile_page">Profile Page</string>
+    <string name="logout">Logout</string>
+    <string name="message">Message</string>
+    <string name="you_have_the_following_reminder">You have the Following Reminder:</string>
+    <string name="reminder">Reminder</string>
+    <string name="cancel_reminder">Cancel Reminder</string>
+
+    <string-array name="country_arrays">
+        <item>Andra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu and Kashmir</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Orissa</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>West Bengal</item>
+        <item>Chhattisgarh</item>
+        <item>Uttarakhand</item>
+        <item>Jharkhand</item>
+        <item>Telangana</item>
+
+    </string-array>
+
+</resources>
