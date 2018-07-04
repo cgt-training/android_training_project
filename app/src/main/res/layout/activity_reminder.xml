@@ -22,7 +22,7 @@
             android:text="@string/reminder"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="28sp"
             />
 
     </android.support.v7.widget.Toolbar>
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent"
         android:hint="@string/message"
         android:layout_above="@id/bt1"
         android:paddingBottom="30dp"
@@ -40,21 +41,27 @@
 
     <Button
         android:id="@+id/bt1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/set_reminder"
         android:layout_margin="16dp"
+        android:textSize="25dp"
         android:background="@color/transparent"
         android:layout_centerInParent="true"
+        android:textColor="@color/colorAccent"
+        android:alpha="0.70"
         android:layout_centerHorizontal="true"
         />
 
     <Button
         android:id="@+id/bt2cancel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/bt1"
+        android:textColor="@color/colorAccent"
+        android:alpha="0.70"
         android:background="@color/transparent"
+        android:textSize="25dp"
         android:layout_margin="16dp"
         android:text="@string/cancel_reminder"
         android:onClick="cancelAlarm"

@@ -20,11 +20,9 @@
             android:text="@string/todo_list"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="28sp"
             />
-
     </android.support.v7.widget.Toolbar>
-
 <ListView
     android:layout_width="match_parent"
     android:layout_height="match_parent"

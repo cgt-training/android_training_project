@@ -51,7 +51,8 @@ public class Todo extends AppCompatActivity {
         ArrayList<String> taskList = dbHelper.getTaskList();
 
         if(mAdapter==null){
-            mAdapter = new ArrayAdapter<String>(this,R.layout.row,R.id.task_title,taskList);
+            mAdapter = new ArrayAdapter<String>(this,
+                    R.layout.row,R.id.task_title,taskList);
             lstTask.setAdapter(mAdapter);
         }
         else{
@@ -68,7 +69,8 @@ public class Todo extends AppCompatActivity {
         //Change menu icon color
         Drawable icon = menu.getItem(0).getIcon();
         icon.mutate();
-        icon.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_IN);
+        icon.setColorFilter(getResources().
+                getColor(android.R.color.white), PorterDuff.Mode.SRC_IN);
         return super.onCreateOptionsMenu(menu);
     }
 

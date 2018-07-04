@@ -17,7 +17,7 @@ public class ReminderReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "Alarm! Wake up! Wake up!", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Wake up! Wake up! Wake up!", Toast.LENGTH_LONG).show();
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null)
         {
@@ -27,3 +27,19 @@ public class ReminderReceiver extends BroadcastReceiver {
         ringtone.play();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

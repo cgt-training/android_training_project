@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightPink"
-    android:orientation="vertical"
     tools:context="com.example.ruby.trainingproject.Reminder.RemainderMessage">
 
     <android.support.v7.widget.Toolbar
@@ -19,8 +18,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/world_cup_app"
-            android:textSize="20sp"
+            android:text="@string/football_tournament_app"
+            android:textSize="28sp"
+            android:textStyle="bold"
             android:textColor="@color/white"
             />
 
@@ -30,27 +30,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/you_have_the_following_reminder"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/ReminderMessage"
+        android:alpha="0.5"
         android:textSize="20sp"
         android:layout_margin="16dp"/>
 
     <TextView
         android:id="@+id/tv1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Reminder"
-        android:layout_margin="16dp"
+        android:layout_below="@id/ReminderMessage"
+        android:hint="@string/reminder"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
         android:textSize="30sp" />
 
     <Button
+        android:id="@+id/stopReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:layout_marginBottom="122dp"
         android:background="@color/transparent"
-        android:id="@+id/stopReminder"
-        android:text="Stop"
         android:onClick="toStop"
-        android:layout_marginTop="80dp"
-        />
+        android:text="@string/stop"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>

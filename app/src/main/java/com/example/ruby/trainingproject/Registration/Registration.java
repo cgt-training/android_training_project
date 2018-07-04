@@ -12,7 +12,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.ruby.trainingproject.FromBitmapToUri.BitmapToUri;
 import com.example.ruby.trainingproject.Login.Login;
 import com.example.ruby.trainingproject.R;
 import com.example.ruby.trainingproject.Retrofit2.FileUploadService;
@@ -29,6 +32,8 @@ import com.example.ruby.trainingproject.Spinner.CustomOnItemSelectedListener;
 import com.ipaulpro.afilechooser.utils.FileUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 import okhttp3.MediaType;
@@ -43,8 +48,10 @@ public class Registration extends AppCompatActivity {
     Uri selectedImageUri;
     private Toolbar toolbar;
     ImageView ivImage;
+    File file;
+    String email;
 
-    Integer REQUEST_CAMERA=1, SELECT_FILE=0;
+    Integer REQUEST_CAMERA=1, SELECT_FILE=0,CAMERA=22;
     Button buttonRequestSend;
     EditText ed1,ed3,ed4,ed5,ed6,ed7,ed8;
     Spinner ed2;
@@ -65,6 +72,8 @@ public class Registration extends AppCompatActivity {
         ed7 =(EditText)findViewById(R.id.ed7);
         ed8 =(EditText)findViewById(R.id.ed8);
 
+
+
         ed2.setOnItemSelectedListener(new CustomOnItemSelectedListener());
         ed2.setPrompt("State");
 
@@ -81,11 +90,31 @@ public class Registration extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.round_arrow_back_black_18dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         buttonRequestSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadFile(selectedImageUri);
+                email=ed6.getText().toString();
+
+                if(isValidEmail(email)){
+
+                if(CAMERA.equals(1)|CAMERA.equals(0)) {
+                    uploadFile(selectedImageUri);
+                    finish();
+                }else{
+                    Toast.makeText(Registration.this,"Please inset an Image",Toast.LENGTH_LONG).show();
+                }
+                }else {
+                    Toast.makeText(Registration.this,"Enter correct Email",Toast.LENGTH_LONG).show();
+//                    Log.d("Magggic", " "+email);
+                }
             }
         });
     }
@@ -125,17 +154,19 @@ public class Registration extends AppCompatActivity {
         if(resultCode== Activity.RESULT_OK){
 
             if(requestCode==REQUEST_CAMERA){
-
                 Bundle bundle = data.getExtras();
                 final Bitmap bmp = (Bitmap)bundle.get("data");
                 ivImage.setImageBitmap(bmp);
+                CAMERA=0;
+
+                // Handling Bitmap file
+                persistImage(this,bmp,"BitmapImage");
+//                Toast.makeText(Registration.this,"Hellow form iMage",Toast.LENGTH_LONG).show();
 
             }else if(requestCode==SELECT_FILE){
-
+                CAMERA=1;
                 selectedImageUri = data.getData();
                 ivImage.setImageURI(selectedImageUri);
-
-
             }
         }
     }
@@ -144,7 +175,6 @@ public class Registration extends AppCompatActivity {
         String address = ed1.getText().toString()+" "+ed2.getSelectedItem().toString()+" "+ed3.getText().toString()+" "+ed4.getText().toString();
         return address;
     }
-
 
     private void uploadFile(Uri fileUri) {
         // create upload service client
@@ -156,7 +186,13 @@ public class Registration extends AppCompatActivity {
 //        File file = FileUtils.getFile(this, fileUri);
 
         MultipartBody.Part imageFileBody=null;
-        File file = FileUtils.getFile(this, fileUri);
+
+        // If camera = 1, then
+        if(CAMERA==1) {
+            // Creating file from uri
+            file = FileUtils.getFile(this, fileUri);
+        }
+
         RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpeg"), file);
         imageFileBody = MultipartBody.Part.createFormData("profile", file.getName(), requestBody);
 
@@ -182,7 +218,7 @@ public class Registration extends AppCompatActivity {
         mPostArrayList.put("profile",file);
 
 
-        Toast.makeText(Registration.this,"Hellow form iMage",Toast.LENGTH_LONG).show();
+//        Toast.makeText(Registration.this,"Hellow form iMage",Toast.LENGTH_LONG).show();
 
         // finally, execute the request
         Call<HashMap<String, String>> call = service.upload(mPostArrayList,imageFileBody);
@@ -207,4 +243,22 @@ public class Registration extends AppCompatActivity {
         });
     }
 
+    public void persistImage(Context context, Bitmap bitmap, String name) {
+        File filesDir = context.getFilesDir();
+        file = new File(filesDir, name + ".jpg");
+
+        OutputStream os;
+        try {
+            os = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            os.flush();
+            os.close();
+        } catch (Exception e) {
+            Log.e("persisitImage", "Error writing bitmap", e);
+        }
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
 }

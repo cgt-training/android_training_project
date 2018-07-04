@@ -19,8 +19,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/world_cup_app"
-            android:textSize="20sp"
+            android:text="@string/football_tournament_app"
+            android:textSize="28sp"
+            android:textStyle="bold"
             android:textColor="@color/white"
             />
 
@@ -29,14 +30,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:alpha="0.70"
         android:layout_margin="8dp"
         android:id="@+id/headingUsername"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:alpha="0.70"
         android:layout_margin="8dp"
         android:id="@+id/headingEmail"/>
 

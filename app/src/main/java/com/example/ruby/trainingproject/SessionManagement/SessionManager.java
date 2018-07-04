@@ -41,6 +41,7 @@ public class SessionManager {
 
     public static final String KEY_PHONE = "phone";
 
+    public static final String KEY_IMAGE ="Image" ;
 
     // Constructor
     public SessionManager(Context context){
@@ -52,7 +53,7 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String name, String email, String address, String phone){
+    public void createLoginSession(String name, String email, String address, String phone, String photo){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -65,6 +66,8 @@ public class SessionManager {
         editor.putString(KEY_ADDRESS,address);
 
         editor.putString(KEY_PHONE,phone);
+
+        editor.putString(KEY_IMAGE,photo);
 
         // commit changes
         editor.commit();
@@ -92,8 +95,6 @@ public class SessionManager {
 
     }
 
-
-
     /**
      * Get stored session data
      * */
@@ -108,6 +109,8 @@ public class SessionManager {
         user.put(KEY_ADDRESS, pref.getString(KEY_ADDRESS, null));
 
         user.put(KEY_PHONE, pref.getString(KEY_PHONE, null));
+
+        user.put(KEY_IMAGE, pref.getString(KEY_IMAGE, null));
 
         // return user
         return user;

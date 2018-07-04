@@ -25,7 +25,8 @@ public interface FileUploadService {
 //        })
 
     @Multipart
-    @POST("http://192.168.1.59:3000/users/register_football")
+//    @POST("http://192.168.1.59:3000/users/register_football")
+    @POST("https://shrouded-escarpment-62032.herokuapp.com/users/register_football")
     Call<HashMap<String, String>> upload(@PartMap HashMap<String, Object> parameters,
                                          @Part MultipartBody.Part file);
 

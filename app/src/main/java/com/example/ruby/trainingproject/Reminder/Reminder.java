@@ -5,9 +5,11 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +30,7 @@ public class Reminder extends AppCompatActivity {
     EditText ed1;
     AlarmManager alarmManager,manager;
     PendingIntent pendingIntent,pending;
-    String alarmCheck;
+    String alarmCheck="no";
     private Toolbar toolbar ;
 
     @Override
@@ -58,6 +60,7 @@ public class Reminder extends AppCompatActivity {
                 textAlarmPrompt.setText("");
                 openTimePickerDialog(false);
             }});
+
     }
 
     private void openTimePickerDialog(boolean is24r){
@@ -92,7 +95,9 @@ public class Reminder extends AppCompatActivity {
 
     private void setAlarm(Calendar targetCal){
 
-        textAlarmPrompt.setText("\n\n***\n" + "Reminder is set@ " + targetCal.getTime() + "\n" + "***\n");
+        textAlarmPrompt.setText("Reminder is set@ " + targetCal.getTime());
+        textAlarmPrompt.setTextColor(getResources().getColor(R.color.colorAccent));
+        textAlarmPrompt.setGravity(Gravity.CENTER_HORIZONTAL);
 
         Intent intent = new Intent(getBaseContext(), ReminderReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
@@ -111,12 +116,15 @@ public class Reminder extends AppCompatActivity {
     }
 
     public void cancelAlarm(View view) {
-        if (alarmCheck=="yes") {
+        if (alarmCheck.equals("yes")) {
             alarmManager.cancel(pendingIntent);
             manager.cancel(pending);
-            textAlarmPrompt.setText("\n\n***\n" + "Reminder is cancelled " + "\n" + "***\n");
-        }else {
+            textAlarmPrompt.setText("Reminder is cancelled");
+            textAlarmPrompt.setTextColor(getResources().getColor(R.color.colorAccent));
+            alarmCheck="no";
+        }else if(alarmCheck.equals("no")) {
             Toast.makeText(this,"No alarm is set",Toast.LENGTH_LONG).show();
+            textAlarmPrompt.setText("");
         }
     }
 }

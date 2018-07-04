@@ -1,7 +1,9 @@
 package com.example.ruby.trainingproject.Login;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -38,7 +40,7 @@ public class Login extends AppCompatActivity {
     EditText id,password;
     TextView errorMessage;
     String Check="";
-    String name,email,address,phone;
+    String name,email,address,phone,photo;
     Button LoginButton;
 
     @Override
@@ -86,9 +88,9 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<HashMap<String, String>> call,
                                    Response<HashMap<String, String>> response) {
 
-//                Log.d("Upload", response.body().toString());
-//                Log.d("Upload MessaGE", String.valueOf(response.body().get("message")));
-//                Log.d("Upload Message for user",String.valueOf(response.body().get("user")));
+                Log.d("Upload", response.body().toString());
+                Log.d("Upload MessaGE", String.valueOf(response.body().get("message")));
+                Log.d("Upload Message for user",String.valueOf(response.body().get("user")));
                 Check = String.valueOf(response.body().get("message"));
                 errorMessage.setText(Check);
                 errorMessage.setTextColor(Color.RED);
@@ -103,12 +105,12 @@ public class Login extends AppCompatActivity {
                     address = jObj.getString("address");
                     phone = jObj.getString("phone");
                     email = jObj.getString("email");
+                    photo = jObj.getString("image_url");
 
-//                    Toast.makeText(Login.this," "+name,Toast.LENGTH_LONG).show();
+//                    Toast.makeText(Login.this," "+photo,Toast.LENGTH_LONG).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-
                 }
 
 //                Toast.makeText(Login.this,String.valueOf(response.body().get("user")),Toast.LENGTH_LONG).show();
@@ -116,12 +118,12 @@ public class Login extends AppCompatActivity {
 
                 if(Check.equals("Login Successfull")){
                     Intent intent = new Intent(Login.this,Options.class);
-                    session.createLoginSession(""+name, ""+email,""+address,""+phone);
+                    session.createLoginSession(""+name, ""+email,""+address,""+phone, ""+photo);
                     startActivity(intent);
                     finish();
                 }
                 else{
-                    Toast.makeText(Login.this,"Enter N1 enter",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this,"Try Again!!",Toast.LENGTH_LONG).show();
                 }
 
 //                Toast.makeText(Login.this,""+ response.toString(),Toast.LENGTH_LONG).show();
@@ -134,4 +136,22 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Login.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 }

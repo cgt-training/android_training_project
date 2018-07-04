@@ -25,3 +25,16 @@ public class MyReceiver extends BroadcastReceiver {
         context.startActivity(i);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

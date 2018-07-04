@@ -1,6 +1,8 @@
 package com.example.ruby.trainingproject.OptionsPage;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ruby.trainingproject.Login.Login;
 import com.example.ruby.trainingproject.ProfilePage.Profile;
 import com.example.ruby.trainingproject.R;
 import com.example.ruby.trainingproject.Reminder.Reminder;
@@ -72,5 +75,27 @@ public class Options extends AppCompatActivity {
     public void openProfile(View view){
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("This will log you out. Are you sure you want to exit?")
+        .setPositiveButton("YES, Totally!!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Options.this.finish();
+            }
+        })
+                .setNegativeButton("NO, Not at all!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+
     }
 }

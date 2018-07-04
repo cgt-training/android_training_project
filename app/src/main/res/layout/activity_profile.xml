@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightPink"
+    android:background="@color/LightBlack"
     android:orientation="vertical"
     tools:context="com.example.ruby.trainingproject.ProfilePage.Profile">
 
@@ -21,55 +21,90 @@
             android:text="@string/profile_page"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="28sp"
             />
 
     </android.support.v7.widget.Toolbar>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/photo"
+            android:alpha="0.30"
+            android:scaleType="fitCenter"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/SmallPhoto"
+            android:layout_width="108dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="2dp"
+            android:layout_centerInParent="true"
+            android:layout_height="108dp"
+            />
+
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:background="@color/colorAccent"
+    android:layout_weight="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Photo"
-        android:id="@+id/photo"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        />
+        android:orientation="vertical"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:id="@+id/name"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="25sp"
+            android:id="@+id/name"
+            android:textColor="@color/white"
+            android:alpha="0.70"
+            android:padding="10dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/mailId"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone"
-        android:id="@+id/phoneNumber"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:id="@+id/mailId"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:alpha="0.7"
+            android:layout_margin="10dp"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Address"
-        android:id="@+id/address"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="25sp"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:alpha="0.70"
+            android:id="@+id/phoneNumber"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/address"
+            android:textSize="25sp"
+            android:alpha="0.70"
+            android:textColor="@color/white"
+            android:id="@+id/address"
+            android:layout_margin="10dp"
+            />
 
-
+    </LinearLayout>
+</ScrollView>
 </LinearLayout>

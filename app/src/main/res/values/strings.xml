@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Training Project</string>
+    <string name="app_name">AFT</string>
     <string name="registration">Registration</string>
+    <string name="name">Name</string>
     <string name="address">Address</string>
     <string name="submit">Submit</string>
     <string name="phone_number">Phone Number</string>
@@ -14,7 +15,6 @@
     <string name="forgot_password">Forgot Password</string>
     <string name="remember_me">Remember me</string>
     <string name="password">Password</string>
-    <string name="email">Email</string>
     <string name="world_cup_app">World Cup App</string>
     <string name="delete">Delete</string>
     <string name="example">Example</string>
@@ -28,6 +28,11 @@
     <string name="you_have_the_following_reminder">You have the Following Reminder:</string>
     <string name="reminder">Reminder</string>
     <string name="cancel_reminder">Cancel Reminder</string>
+    <string name="football_tournament_app">Football Tournament App</string>
+    <string name="stop">Stop</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+
 
     <string-array name="country_arrays">
         <item>Andra Pradesh</item>
